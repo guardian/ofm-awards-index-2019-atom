@@ -3,11 +3,179 @@
 @import "palette";
 
 // Uncomment for embeds
-//@import "embed";
+@import "embed";
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
 
-.element-atom,
-.interactive-atom {
-    margin: 0 !important;
+
+.interactive-wrapper {
+  display: none;
+  .render & {
+    display: block;
+  }
 }
+
+.ofm-awards-index {
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  .ofm-next-up {
+    position: relative;
+    &__image {
+      width: 100%;
+      padding-bottom: 60%;
+      background-position: center;
+      background-size: cover;
+    }
+    &__link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+    &__label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 64px;
+      background-color: #BB3B80;
+      color: #fff;
+      &__type {
+        padding: 5px 2px 3px 10px;
+        font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 16px;
+      }
+      &__name {
+        padding: 0 2px 8px 10px;
+        font-family: "Guardian Egyptian Web",Georgia,serif;
+        font-size: 21px;
+        line-height: 22px;
+        font-weight: 700;
+        .icon__obj {
+          background-color: currentColor;
+          width: 18px;
+          height: 18px;
+        }
+        @include mq-add-breakpoint(mobileSmall, 340px);
+        @include mq(mobileSmall) {
+          font-size: 28px;
+          line-height: 30px;
+          .icon__obj {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+  }
+  .text {
+    display: inline;
+  }
+  .icon {
+    display: inline;
+    white-space: nowrap;
+    &__obj {
+      display: inline-block;
+      margin-left: 0px;
+      border-radius: 100%;
+      vertical-align: middle;
+      position: relative;
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .ofm-index {
+  background-color: #f6f6f6;
+  display: block;
+  margin-right: 64px;
+  &__expand {
+    .full-index & {
+      display: none;
+    }
+    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    padding: 4px 10px 8px;
+    color: #BB3B80;
+    cursor: pointer;
+    .icon__obj {
+      width: 22px;
+      height: 22px;
+      border: 1px solid rgba(#BB3B80, 0.5);
+      bottom: 1px;
+      left: 1px;
+    }
+  }
+
+  &__all {
+    display: none;
+    .full-index & {
+      display: block;
+    }
+    .listing {
+      display: block;
+      font-family: "Guardian Egyptian Web",Georgia,serif;
+      font-size: 18px;
+      line-height: 24px;
+      padding-bottom: 16px;
+      padding-right: 8px;
+      margin-left: 10px;
+      border-top: 1px solid transparent;
+      text-decoration: none;
+      &:first-child {
+        border-top: 0;
+      }
+      &:last-child {
+        padding-bottom: 24px;
+      }
+      &.active {
+        color: #BB3B80;
+        border-color: rgba(#BB3B80, 0.2);
+        font-weight: 700;
+        .icon__obj {
+          width: 16px;
+          height: 16px;
+          background-color: currentColor;
+          bottom: 1px;
+          left: 4px;
+        }
+      }
+
+      &.inactive {
+        color: #767676;
+        border-color: rgba(#767676, 0.2);
+        font-weight: 500;
+        &:first-of-type {
+          position: relative;
+          margin-top: 40px;
+          &:before {
+            content: 'Out later this week:';
+            color: #767676;
+            display: block;
+            position: absolute;
+            top: -40px;
+            left: -10px;
+            right: 0;
+            border-top: 1px solid rgba(#767676, 0.2);
+            padding-left: 10px;
+            font-size: 12px;
+            line-height: 16px;
+            padding-top: 4px;
+            font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+          }
+        }
+      }
+    }
+  }
+
+  }
+
+
+}
+
