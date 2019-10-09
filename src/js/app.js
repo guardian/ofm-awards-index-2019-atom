@@ -4,7 +4,6 @@ import { clearInterval } from 'timers';
 
 
 function appStart() {
-  renderSeriesTag();
   loadJson("https://interactive.guim.co.uk/docsdata-test/1t0Sapl3sHaxGOQw1g2FS1VI5iJAVQr37GSLCknIAAmI.json")
     .then((data) => {
       var awards = data.sheets[Object.keys(data.sheets)[0]];
@@ -28,27 +27,6 @@ function renderStart(awards) {
   renderList(awards);
   setupInteraction();
   showAtom();
-}
-
-function renderSeriesTag() {
-  var pDoc = parent.document;
-
-  // try web
-  var webSeriesLink = pDoc.querySelector('.content__series-label a');
-  var webSeriesLabel = pDoc.querySelector('.content__series-label span');
-  if (webSeriesLink && webSeriesLabel) {
-    webSeriesLabel.innerText = 'Observer Food Monthly Awards 2018';
-    webSeriesLink.setAttribute('href', '/observer-food-monthly-awards')
-  }
-
-  // try app
-  var appSeriesEl = pDoc.querySelector('.article-kicker__series a');
-  if (appSeriesEl) {
-    appSeriesEl.innerText = 'Observer Food Monthly Awards 2018';
-    appSeriesEl.setAttribute('href', 'x-gu://front/mobile.guardianapis.com/uk/fronts/observer-food-monthly-awards');
-  }
-
-
 }
 
 function renderPromo(awards) {
