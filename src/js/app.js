@@ -1,23 +1,33 @@
 // 🤞
 import loadJson from '../components/load-json/'
+import { clearInterval } from 'timers';
 
-
-// to do
-// this sometimes fails:
-// var pageId = parent.window.guardian.config.page.pageId;
 
 function appStart() {
   renderSeriesTag();
   loadJson("https://interactive.guim.co.uk/docsdata-test/1t0Sapl3sHaxGOQw1g2FS1VI5iJAVQr37GSLCknIAAmI.json")
     .then((data) => {
       var awards = data.sheets[Object.keys(data.sheets)[0]];
-      setTimeout(function () {
-        renderPromo(awards);
-        renderList(awards);
-        setupInteraction();
-        showAtom();
-      }, 600);
+
+      var checkInterval = setInterval(function () {
+        if (atomCanBegin()) {
+          renderStart(awards);
+          window.clearInterval(checkInterval);
+        }
+      }, 100);
+
     });
+}
+
+function atomCanBegin() {
+  return (document.querySelector('.ofm-awards-index') && parent.window && parent.window.guardian && parent.window.guardian.config && parent.window.guardian.config.page && parent.window.guardian.config.page.pageId)
+}
+
+function renderStart(awards) {
+  renderPromo(awards);
+  renderList(awards);
+  setupInteraction();
+  showAtom();
 }
 
 function renderSeriesTag() {

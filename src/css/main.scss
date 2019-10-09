@@ -7,22 +7,6 @@
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
 
-#r {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 24px;
-  height: 24px;
-  background-color: #eaeaea;
-  border-radius: 100%;
-  cursor: pointer;
-  color: transparent;
-  opacity: 0;
-  &:hover {
-    opacity: 1;
-  }
-}
-
 .interactive-wrapper {
   display: none;
   .render & {
@@ -50,11 +34,10 @@
       z-index: 2;
       &:hover {
         & ~ .ofm-next-up__label {
-          background-color: #6b065a;
+          // background-color: #6b065a;
           background-color: #ffe500;
           color: #7d0068;
           .icon__obj {
-            // background-color: #ffabdb;
             path {
               fill: #fff;
             }
@@ -79,7 +62,7 @@
         line-height: 16px;
       }
       &__name {
-        padding: 0 2px 8px 10px;
+        padding: 0 4px 8px 10px;
         font-family: "Guardian Headline", "Guardian Egyptian Web",Georgia,serif;
         font-size: 21px;
         line-height: 22px;
@@ -151,6 +134,7 @@
       }
     }
     &:hover {
+      background-color: #ffe500;
       .icon__obj {
         background-color: #7d0068;
         path {
@@ -162,21 +146,8 @@
 
   &__all {
     display: none;
-    // overflow: hidden;
-    // max-height: 0;
-    // transition: max-height 480ms ease-out;
     .full-index & {
       display: block;
-      // max-height: 800px;
-      // .listing {
-      //   opacity: 1;
-      //   transform: none;
-      //   @for $i from 1 through 20 {
-      //     &:nth-child(#{$i}) {
-      //       transition-delay: ($i * 300ms);
-      //     }
-      //   }
-      // }
     }
     .listing {
       display: block;
@@ -188,9 +159,7 @@
       margin-left: 10px;
       border-top: 1px solid transparent;
       text-decoration: none;
-      // opacity: 0;
-      // transform: translateX(-20px);
-      // transition: all 480ms ease-out;
+      cursor: default;
 
       &:first-child {
         border-top: 0;
@@ -200,10 +169,12 @@
         padding-bottom: 24px;
       }
       &.active {
+        cursor: pointer;
         color: #7d0068;
         border-color: rgba(#7d0068, 0.2);
         font-weight: 700;
         .icon__obj {
+          transition: all 360ms ease-out;
           width: 16px;
           height: 16px;
           background-color: currentColor;
@@ -212,6 +183,10 @@
         }
         &:hover {
           color: #5f0b51;
+          .icon__obj {
+            transform: scale(1.2);
+            transition: all 120ms ease-out;
+          }
         }
       }
 
