@@ -7,6 +7,21 @@
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
 
+#r {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #eaeaea;
+  border-radius: 100%;
+  cursor: pointer;
+  color: transparent;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+}
 
 .interactive-wrapper {
   display: none;
@@ -33,14 +48,29 @@
       right: 0;
       bottom: 0;
       z-index: 2;
+      &:hover {
+        & ~ .ofm-next-up__label {
+          background-color: #6b065a;
+          background-color: #ffe500;
+          color: #7d0068;
+          .icon__obj {
+            // background-color: #ffabdb;
+            path {
+              fill: #fff;
+            }
+          }
+        }
+      }
+
     }
     &__label {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 64px;
-      background-color: #BB3B80;
+      // background-color: #BB3B80;
       color: #fff;
+      background-color: #7d0068;
       &__type {
         padding: 5px 2px 3px 10px;
         font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
@@ -50,7 +80,7 @@
       }
       &__name {
         padding: 0 2px 8px 10px;
-        font-family: "Guardian Egyptian Web",Georgia,serif;
+        font-family: "Guardian Headline", "Guardian Egyptian Web",Georgia,serif;
         font-size: 21px;
         line-height: 22px;
         font-weight: 700;
@@ -58,6 +88,9 @@
           background-color: currentColor;
           width: 18px;
           height: 18px;
+          path {
+            fill: #7d0068;
+          }
         }
         @include mq-add-breakpoint(mobileSmall, 340px);
         @include mq(mobileSmall) {
@@ -68,7 +101,7 @@
             height: 24px;
           }
         }
-      }
+      }  
     }
   }
   .text {
@@ -93,7 +126,9 @@
   }
 
   .ofm-index {
-  background-color: #f6f6f6;
+  // background-color: #f6f6f6;
+  border: 1px solid #dcdcdc;
+  border-top: 0;
   display: block;
   margin-right: 64px;
   &__expand {
@@ -102,25 +137,50 @@
     }
     font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
     padding: 4px 10px 8px;
-    color: #BB3B80;
+    color: #7d0068;
     cursor: pointer;
     .icon__obj {
       width: 22px;
       height: 22px;
-      border: 1px solid rgba(#BB3B80, 0.5);
+      border: 1px solid rgba(#7d0068, 0.5);
       bottom: 1px;
       left: 1px;
+      transition: transform 240ms;
+      path {
+        fill: currentColor;
+      }
+    }
+    &:hover {
+      .icon__obj {
+        background-color: #7d0068;
+        path {
+          fill: #fff;
+        }
+      }
     }
   }
 
   &__all {
     display: none;
+    // overflow: hidden;
+    // max-height: 0;
+    // transition: max-height 480ms ease-out;
     .full-index & {
       display: block;
+      // max-height: 800px;
+      // .listing {
+      //   opacity: 1;
+      //   transform: none;
+      //   @for $i from 1 through 20 {
+      //     &:nth-child(#{$i}) {
+      //       transition-delay: ($i * 300ms);
+      //     }
+      //   }
+      // }
     }
     .listing {
       display: block;
-      font-family: "Guardian Egyptian Web",Georgia,serif;
+      font-family: "Guardian Headline", "Guardian Egyptian Web",Georgia,serif;
       font-size: 18px;
       line-height: 24px;
       padding-bottom: 16px;
@@ -128,15 +188,20 @@
       margin-left: 10px;
       border-top: 1px solid transparent;
       text-decoration: none;
+      // opacity: 0;
+      // transform: translateX(-20px);
+      // transition: all 480ms ease-out;
+
       &:first-child {
         border-top: 0;
+        padding-top: 3px;
       }
       &:last-child {
         padding-bottom: 24px;
       }
       &.active {
-        color: #BB3B80;
-        border-color: rgba(#BB3B80, 0.2);
+        color: #7d0068;
+        border-color: rgba(#7d0068, 0.2);
         font-weight: 700;
         .icon__obj {
           width: 16px;
@@ -145,11 +210,14 @@
           bottom: 1px;
           left: 4px;
         }
+        &:hover {
+          color: #5f0b51;
+        }
       }
 
       &.inactive {
-        color: #767676;
-        border-color: rgba(#767676, 0.2);
+        color: #999;
+        border-color: rgba(#999, 0.2);
         font-weight: 500;
         &:first-of-type {
           position: relative;
@@ -164,7 +232,7 @@
             right: 0;
             border-top: 1px solid rgba(#767676, 0.2);
             padding-left: 10px;
-            font-size: 12px;
+            font-size: 14px;
             line-height: 16px;
             padding-top: 4px;
             font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
