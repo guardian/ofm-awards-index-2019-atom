@@ -133,7 +133,7 @@ function showAtom() {
   document.body.classList.add('render');
 
   var atomParentStyles = document.createElement('style');
-  atomParentStyles.innerHTML = '@media (max-width: 30em) { .gs-container .element-atom.element--supporting { margin-left: -10px; } .from-content-api .element-atom.element--supporting { margin-left: -12px; } } .element-atom.element--supporting iframe { width: 100%; } @media (min-width: 40.63em) { .ios .element-atom.element--supporting, .android .element-atom.element--supporting {float: left; width: 400px; margin-right: 24px; }}';
+  atomParentStyles.innerHTML = '@media (max-width: 30em) { .gs-container .element-atom.element--supporting { margin-left: -10px; } .from-content-api .element-atom.element--supporting { margin-left: -12px; } } .element-atom.element--supporting iframe { width: 100%; } @media (min-width: 40.63em) { .ios .element-atom.element--supporting, .android .element-atom.element--supporting {float: left; width: 380px; margin-right: 24px; }}';
   parent.document.body.appendChild(atomParentStyles);
 
   window.resize();
