@@ -86,11 +86,11 @@ function platformIndependentLink(award) {
   var linkPrefix;
 
   if (pBody.classList.contains('ios') || pBody.classList.contains('android')) {
-    // linkPrefix = 'x-gu://item/mobile-preview.guardianapis.com/items';
-    linkPrefix = 'x-gu://item/mobile.guardianapis.com/items';
+    linkPrefix = 'x-gu://item/mobile-preview.guardianapis.com/items';
+    // linkPrefix = 'x-gu://item/mobile.guardianapis.com/items';
   } else {
-    // linkPrefix = 'https://preview.gutools.co.uk'
-    linkPrefix = 'https://www.theguardian.com';
+    linkPrefix = 'https://preview.gutools.co.uk'
+    // linkPrefix = 'https://www.theguardian.com';
   }
 
   if (award['Main link'].indexOf('/') != 0) {
@@ -129,7 +129,7 @@ function showAtom() {
   document.body.classList.add('render');
 
   var atomParentStyles = document.createElement('style');
-  atomParentStyles.innerHTML = '@media (max-width: 30em) { .gs-container .element-atom.element--supporting { margin-left: -10px; } .from-content-api .element-atom.element--supporting { margin-left: -12px; } } .element-atom.element--supporting iframe { width: 100%; }';
+  atomParentStyles.innerHTML = '@media (max-width: 30em) { .gs-container .element-atom.element--supporting { margin-left: -10px; } .from-content-api .element-atom.element--supporting { margin-left: -12px; } } .element-atom.element--supporting iframe { width: 100%; } @media (min-width: 40.63em) { .ios .element-atom.element--supporting, .android .element-atom.element--supporting {float: left; width: 400px; margin-right: 24px; }}';
   parent.document.body.appendChild(atomParentStyles);
 
   window.resize();
