@@ -4,10 +4,10 @@ import { clearInterval } from 'timers';
 
 
 function appStart() {
+  console.log("Rendering OFM Awards index 2019-10.15.11:27")
   loadJson("https://interactive.guim.co.uk/docsdata-test/1t0Sapl3sHaxGOQw1g2FS1VI5iJAVQr37GSLCknIAAmI.json")
     .then((data) => {
       var awards = data.sheets[Object.keys(data.sheets)[0]];
-
       var checkInterval = setInterval(function () {
         if (atomCanBegin()) {
           renderStart(awards);
@@ -23,7 +23,6 @@ function atomCanBegin() {
 }
 
 function renderStart(awards) {
-  console.log("Rendering OFM Awards index 2019-10.15.10:43")
   renderPromo(awards);
   renderList(awards);
   setupInteraction();
@@ -140,12 +139,11 @@ function showAtom() {
 }
 
 function setupInteraction() {
-  document.querySelector('.ofm-index__expand__label').addEventListener('click', function () {
+  let expandLabel = document.querySelector('.ofm-index__expand');
+  expandLabel.addEventListener('click', function () {
     document.querySelector('.interactive-wrapper').classList.add('full-index');
-
     window.resize();
-
-  })
+  });
 }
 
 appStart();
