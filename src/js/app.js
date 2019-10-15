@@ -23,6 +23,7 @@ function atomCanBegin() {
 }
 
 function renderStart(awards) {
+  console.log("Rendering OFM Awards index 2019-10.15.10:43")
   renderPromo(awards);
   renderList(awards);
   setupInteraction();
@@ -89,7 +90,7 @@ function platformIndependentLink(award) {
     // linkPrefix = 'x-gu://item/mobile-preview.guardianapis.com/items';
     linkPrefix = 'x-gu://item/mobile.guardianapis.com/items';
   } else {
-    if (window.location.hostname.indexOf('gutools.co.uk') > 0) {
+    if (window.parent.location.hostname.indexOf('gutools.co.uk') > 0) {
       linkPrefix = 'https://preview.gutools.co.uk'
     } else {
       linkPrefix = 'https://www.theguardian.com';
