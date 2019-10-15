@@ -86,11 +86,14 @@ function platformIndependentLink(award) {
   var linkPrefix;
 
   if (pBody.classList.contains('ios') || pBody.classList.contains('android')) {
-    linkPrefix = 'x-gu://item/mobile-preview.guardianapis.com/items';
-    // linkPrefix = 'x-gu://item/mobile.guardianapis.com/items';
+    // linkPrefix = 'x-gu://item/mobile-preview.guardianapis.com/items';
+    linkPrefix = 'x-gu://item/mobile.guardianapis.com/items';
   } else {
-    linkPrefix = 'https://preview.gutools.co.uk'
-    // linkPrefix = 'https://www.theguardian.com';
+    if (window.location.hostname.indexOf('gutools.co.uk') > 0) {
+      linkPrefix = 'https://preview.gutools.co.uk'
+    } else {
+      linkPrefix = 'https://www.theguardian.com';
+    }
   }
 
   if (award['Main link'].indexOf('/') != 0) {
