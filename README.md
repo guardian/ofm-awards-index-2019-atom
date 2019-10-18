@@ -14,6 +14,7 @@ The index atom allows people to click thru to the next award, and shows what awa
 
 Note: these are just the bare-minimum steps, but can change for updated design as needed.
 
+Also see the [OFM Label helper atom](https://github.com/guardian/ofm-awards-label-2019-atom).
 
 ## Standard atom instructions:
 
