@@ -16,6 +16,15 @@ Note: these are just the bare-minimum steps, but can change for updated design a
 
 **Also see the [OFM Label helper atom](https://github.com/guardian/ofm-awards-label-2019-atom).**
 
+
+## Tracking
+
+Events in the atom are tracked using the following `data-link-name` attributes:
+* Click thru to the next award: `ofm awards index : next`
+* Expanding the full awards list: `ofm awards index : expand`
+* Click to another award inside the expanded list: `ofm awards index : other award`
+
+
 ## Standard atom instructions:
 
 ```
