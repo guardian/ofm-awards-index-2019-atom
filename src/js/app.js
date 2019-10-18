@@ -52,7 +52,7 @@ function renderPromo(awards) {
     var linkEl = document.createElement('a');
     linkEl.classList.add('ofm-next-up__link');
     linkEl.setAttribute('href', platformIndependentLink(award));
-    linkEl.dataset.linkName = 'ofm awards index : other award';
+    linkEl.dataset.linkName = 'ofm awards index : next';
     linkEl.setAttribute('target', '_top');
     el.insertBefore(linkEl, el.firstChild);
 
@@ -115,7 +115,7 @@ function renderList(awards) {
       awardEl.classList.add('active');
       awardEl.innerHTML = "<span class='text'>" + award['Name'] + "</span><span class='icon'><span class='icon__obj'><svg width='11' height='10' viewBox='0 0 11 10' xmlns='http://www.w3.org/2000/svg'><path d='M.4 5.44h8.067L5.304 9.227l.41.412 4.398-4.408v-.422L5.715.4l-.411.411 3.163 3.786H.4z' fill='#FFF' fill-rule='evenodd'/></svg></span></span>";
       awardEl.setAttribute('href', platformIndependentLink(award));
-      linkEl.dataset.linkName = 'ofm awards index : next';
+      awardEl.dataset.linkName = 'ofm awards index : other award';
 
       awardEl.setAttribute('target', '_top');
 
