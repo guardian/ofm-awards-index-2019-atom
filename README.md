@@ -1,4 +1,21 @@
-# Interactive atom template
+# OFM Awards Index atom
+
+The index atom allows people to click thru to the next award, and shows what award pages have launched, and what is coming up in the next few days.
+
+## Updating for this year step-by-step
+
+1. Clone the repository to a new one
+2. Edit config.json to give it a new path
+3. Make a copy of this spreadsheet https://docs.google.com/spreadsheets/d/1t0Sapl3sHaxGOQw1g2FS1VI5iJAVQr37GSLCknIAAmI
+4. Update the content in the sheet to reflect this year's content and publication schedule
+5. When updating the images, keep in mind that as much as 40% of the bottom of the image is covered in some cases
+6. Add the sheet to the visuals tool (https://visuals.gutools.co.uk/docs/)
+7. Update app.js line 8 to reflect the new sheet JSON
+
+Note: these are just the bare-minimum steps, but can change for updated design as needed.
+
+
+## Standard atom instructions:
 
 ```
 npm install
