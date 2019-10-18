@@ -1,7 +1,6 @@
 // 🤞
 import loadJson from '../components/load-json/'
 import { clearInterval } from 'timers';
-import { link } from 'fs';
 
 
 function appStart() {
